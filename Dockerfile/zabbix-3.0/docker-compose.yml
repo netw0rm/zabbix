@@ -4,8 +4,8 @@ serve:
   ports:
     - "80:80"
     - "10051:10051"
-  #volumes:
-    #- /var/lib/docker/vfs/dir/zab3_alscripts:/usr/local/share/zabbix/alertscripts
+  volumes:
+    - /var/lib/docker/vfs/dir/zab3_alscripts:/usr/local/share/zabbix/alertscripts
     #- /var/lib/docker/vfs/dir/zab3_exscripts:/usr/local/share/zabbix/externalscripts
   environment:
     ZS_DBHost: db
