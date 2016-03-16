@@ -5,8 +5,8 @@ serve:
     - "80:80"
     - "10051:10051"
   volumes:
-    - /var/lib/docker/vfs/dir/zab_alscripts:/usr/local/share/zabbix/alertscripts
-    #- /var/lib/docker/vfs/dir/zab_exscripts:/usr/local/share/zabbix/externalscripts
+    - zab_alscripts:/usr/local/share/zabbix/alertscripts
+    #- zab_exscripts:/usr/local/share/zabbix/externalscripts
   environment:
     ZS_DBHost: db
     ZS_DBUser: admin
@@ -18,8 +18,8 @@ db:
   image: zabbix/zabbix-db-mariadb
   container_name: zabbix-db
   volumes:
-    - /var/lib/docker/vfs/dir/zab_db_backups:/backups
-    - /var/lib/docker/vfs/dir/zab_db:/var/lib/mysql
+    - zab_db_backups:/backups
+    - zab_db:/var/lib/mysql
   environment:
     MARIADB_USER: admin
     MARIADB_PASS: mypass
