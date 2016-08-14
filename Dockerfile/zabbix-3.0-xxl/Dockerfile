@@ -5,6 +5,7 @@ MAINTAINER shawn qiusct@live.com
 
 ### Layer: myzabbix
 ADD http://7xr5pv.com1.z0.glb.clouddn.com/msyh.ttf /usr/local/src/zabbix/frontends/php/fonts/
+RUN chmod +r /usr/local/src/zabbix/frontends/php/fonts/msyh.ttf
 #ADD http://7xr5pv.com1.z0.glb.clouddn.com/a.tar /usr/local/share/zabbix/alertscripts/
 
 RUN \
