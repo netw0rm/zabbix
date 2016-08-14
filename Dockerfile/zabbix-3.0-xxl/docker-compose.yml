@@ -1,13 +1,14 @@
 version: '2'
 services:
   zabbix-server:
-    image: netw0rm/zabbix:latest
+    image: netw0rm/zabbix:3.0-xxl
     depends_on:
       - zabbix-db
     ports:
       - "80:80"
       - "10051:10051"
     volumes:
+      - zabbix-alertscripts:/usr/local/share/zabbix/alertscripts
       - /etc/localtime:/etc/localtime:ro
     links:
       - zabbix-db:zabbix.db
@@ -27,6 +28,8 @@ services:
       - MARIADB_USER=zabbix
       - MARIADB_PASS=mypass
 volumes:
+  zabbix-alertscripts:
+    driver: local
   zabbix-db-storage:
     driver: local
   backups:
