@@ -2,6 +2,7 @@ version: '2'
 services:
   zabbix-server:
     image: netw0rm/zabbix:3.0-xxl
+    container_name: zabbix-server
     depends_on:
       - zabbix-db
     ports:
@@ -20,6 +21,7 @@ services:
       - XXL_grapher=true
   zabbix-db:
     image: monitoringartist/zabbix-db-mariadb
+    container_name: zabbix_db
     volumes:
       - zabbix-db-storage:/var/lib/mysql
       - backups:/backups
